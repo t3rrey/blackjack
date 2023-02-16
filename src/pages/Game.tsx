@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "../entities/card";
 
-function Game() {
+const Game = () => {
   // if the player has not made the first move, the counter should not work
   const [gameStarted, setGameStarted] = useState(false);
 
@@ -46,7 +46,6 @@ function Game() {
     }, 1000);
   }
 
-  // timer para caso o jogador demore 6 segundos para jogar
   useEffect(() => {
     if (canPlay && gameStarted) {
       timer = setInterval(() => {
@@ -72,7 +71,6 @@ function Game() {
     }
   }, [seconds, gameStarted]);
 
-  // caso o jogador decida nao comprar cartas
   const stay = () => {
     if (canPlay) {
       clearInterval(timer);
@@ -85,7 +83,6 @@ function Game() {
     }
   };
 
-  // pedir carta caso consiga jogar
   const hit = () => {
     if (canPlay) {
       clearInterval(timer);
@@ -106,12 +103,12 @@ function Game() {
         setStopLoading(false);
       }
     } else {
+      // TODO: add cannot play
       console.log("you cant play");
     }
   };
 
-  // jogada do dealer
-  function dealerPlay() {
+  const dealerPlay = () => {
     if (yourSum === 21 && dealerSum < 21) {
       dealerHit() ? "" : setWinner("you");
     } else if (dealerSum === 21 && yourSum < 21) {
@@ -127,22 +124,20 @@ function Game() {
     } else if (yourSum < dealerSum) {
       setWinner("dealer");
     }
-  }
+  };
 
-  // formar baralho inicial
-  function buildDeck(deck: Card[]): number {
+  // Create starting deck
+  const buildDeck = (deck: Card[]): number => {
     let sum = 0;
-
     for (let index = 0; index < 2; index++) {
       const card = new Card();
       sum = sum + card.value;
       deck.push(card);
     }
     return sum;
-  }
+  };
 
-  // pedir carta para o dealer
-  function dealerHit() {
+  const dealerHit = (): boolean => {
     if (dealerSum < 16) {
       const card = new Card();
       const newDeck = dealerDeck;
@@ -156,7 +151,7 @@ function Game() {
     } else {
       return false;
     }
-  }
+  };
 
   const resetGame = () => {
     setDealerDeck([]);
@@ -305,6 +300,6 @@ function Game() {
       </div>
     </div>
   );
-}
+};
 
 export default Game;

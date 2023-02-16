@@ -1,4 +1,3 @@
-import projectLogo from "../assets/projectLogo.png";
 import playIcon from "../assets/playIcon.png";
 import { Link } from "react-router-dom";
 
@@ -7,7 +6,6 @@ export function Home() {
     <div className="w-screen h-screen flex items-center justify-center flex-col">
       <div className="w-auto">
         <div className="flex items-center">
-          <img className="w-24" src={projectLogo} alt="" />
           <Link
             className="ml-8 w-auto flex items-center animate-bounce text-2xl"
             to={"/game"}
