@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import GithubLogoIcon from "../components/icons/GithubLogoIcon";
 import PlayButtonIcon from "../components/icons/PlayButtonIcon";
 
-export function Home() {
+export const Home = () => {
   return (
     <div className="w-screen h-screen flex items-center justify-center flex-col">
       <div className="w-auto">
@@ -12,11 +12,10 @@ export function Home() {
         >
           <GithubLogoIcon />
         </Link>
-
         <div className="flex items-center">
-          <div className="w-72 h-32 rounded-lg bg-blue-600 flex items-center hover:scale-105">
+          <div className="w-56 h-24 rounded-lg bg-blue-600 flex items-center hover:scale-105">
             <Link
-              className="mx-auto  flex items-center text-4xl text-white font-bold"
+              className="mx-auto flex items-center text-4xl text-white font-bold"
               to={"/game"}
             >
               <p className="mr-2"> PLAY NOW</p>
@@ -27,4 +26,4 @@ export function Home() {
       </div>
     </div>
   );
-}
+};

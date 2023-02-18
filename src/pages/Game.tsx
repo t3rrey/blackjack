@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import GithubLogoIcon from "../components/icons/GithubLogoIcon";
 import { Card } from "../entities/card";
 
 const Game = () => {
@@ -162,6 +163,12 @@ const Game = () => {
 
   return (
     <div className="w-96 max-w-sm h-screen flex items-center flex-col">
+      <Link
+        to="https://github.com/t3rrey/blackjack"
+        className="w-8 absolute top-2 right-2 hover:scale-105"
+      >
+        <GithubLogoIcon />
+      </Link>
       {/* dealer hand */}
       <div
         id="dealerHand"

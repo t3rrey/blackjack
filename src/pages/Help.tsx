@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import help1 from "../assets/help/helpFile1.png";
+import GithubLogoIcon from "../components/icons/GithubLogoIcon";
 
 const Help = () => {
   return (
     <div className="w-96 max-w-sm h-auto flex flex-col box-border px-8 py-28">
+      <Link
+        to="https://github.com/t3rrey/blackjack"
+        className="w-8 absolute top-2 right-2 hover:scale-105"
+      >
+        <GithubLogoIcon />
+      </Link>
       <h1 className="text-3xl text-start text-primary">How to play</h1>
       <p className="text-2xl leading-4 text-slate-500 mt-4">
         the objective of the game is to get a set of cards in which the sum must
