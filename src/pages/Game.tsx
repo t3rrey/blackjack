@@ -16,7 +16,7 @@ const Game = () => {
 
   // timer for move
   const [seconds, setSeconds] = useState(0);
-  // mostrar/ esconder o timer no html
+
   const [stopLoading, setStopLoading] = useState(true);
   // timeoutFunction
   var timer: number;
@@ -24,7 +24,6 @@ const Game = () => {
   // user can play
   const [canPlay, setCanPlay] = useState(true);
 
-  // clonar o deck para nao mostrar a carta virada
   const cloneDeck = [...dealerDeck];
   const hiddenScore = cloneDeck;
 
@@ -39,7 +38,6 @@ const Game = () => {
     }
   }, [winner]);
 
-  // verifica se o dealer ainda possui movimentos
   if (!canPlay && winner == "") {
     setTimeout(() => {
       dealerPlay();
